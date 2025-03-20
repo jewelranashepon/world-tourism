@@ -1,13 +1,26 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Globe, MapPin, Users, Mail, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import TestimonialCard from "@/components/testimonial-card"
-import PopularDestinationCard from "@/components/popular-destination-card"
-import TravelTipCard from "@/components/travel-tip-card"
-import { prisma } from "@/lib/prisma"
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Globe,
+  MapPin,
+  Users,
+  Mail,
+  ChevronRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import TestimonialCard from "@/components/testimonial-card";
+import PopularDestinationCard from "@/components/popular-destination-card";
+import TravelTipCard from "@/components/travel-tip-card";
+import { prisma } from "@/lib/prisma";
 
 export default async function Home() {
   // Fetch featured blog posts from the database
@@ -27,12 +40,12 @@ export default async function Home() {
       createdAt: "desc",
     },
     take: 3,
-  })
+  });
 
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
@@ -67,28 +80,118 @@ export default async function Home() {
             />
           </div>
         </div>
+      </section> */}
+      {/* Hero Section */}
+      {/* Hero Section */}
+      {/* <section className="w-full py-16 md:py-28 lg:py-36 xl:py-48 bg-white text-gray-900">
+        <div className="container px-6 md:px-12 lg:px-16">
+          <div className="grid gap-8 lg:grid-cols-[1fr_500px] xl:grid-cols-[1fr_650px] items-center">
+            <div className="flex flex-col justify-center space-y-6">
+              <div className="space-y-4">
+                <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl xl:text-7xl leading-tight">
+                  Discover the World's Most Beautiful Destinations
+                </h1>
+                <p className="max-w-[650px] text-lg text-gray-600 md:text-xl">
+                  Explore breathtaking landscapes, vibrant cultures, and
+                  unforgettable experiences across all seven continents.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link href="/destinations">
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+                  >
+                    Explore Destinations <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/blog">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white shadow-lg"
+                  >
+                    Read Travel Stories
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <Image
+              src="/images/hero-image.jpg"
+              width={900}
+              height={600}
+              alt="World map with travel destinations"
+              className="mx-auto aspect-video overflow-hidden rounded-2xl object-cover sm:w-full lg:order-last shadow-lg"
+            />
+          </div>
+        </div>
+      </section> */}
+      {/* Hero Section */}
+      <section
+        className="w-full relative py-16 md:py-28 lg:py-36 xl:py-48 bg-cover bg-center text-white"
+        style={{ backgroundImage: "url('/images/hero-image.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative container px-6 md:px-12 lg:px-16 flex flex-col items-center text-center max-w-6xl mx-auto">
+          <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl xl:text-7xl leading-tight">
+            Discover the World's Most Beautiful Destinations
+          </h1>
+          <p className="mt-4 max-w-3xl text-lg text-gray-300 md:text-xl">
+            Explore breathtaking landscapes, vibrant cultures, and unforgettable
+            experiences across all seven continents.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Link href="/destinations">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
+              >
+                Explore Destinations <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-slate-900 hover:bg-white hover:text-gray-900 shadow-lg"
+              >
+                Read Travel Stories
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Popular Destinations Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Popular Destinations</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Popular Destinations
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Discover the most visited and loved destinations around the world
+                Discover the most visited and loved destinations around the
+                world
               </p>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-8">
             {popularDestinations.map((destination) => (
-              <PopularDestinationCard key={destination.id} destination={destination} />
+              <PopularDestinationCard
+                key={destination.id}
+                destination={destination}
+              />
             ))}
           </div>
           <div className="flex justify-center mt-8">
             <Link href="/destinations">
-              <Button size="lg" variant="outline">
-                View All Destinations <ChevronRight className="ml-1 h-4 w-4" />
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-white dark:border-white dark:text-white bg-blue-600 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-6 py-3 shadow-md"
+              >
+                View All Destinations <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -96,19 +199,26 @@ export default async function Home() {
       </section>
 
       {/* Continents Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-        <div className="container px-4 md:px-6">
+      <section className="w-full dark:bg-gray-900">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explore by Continent</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Explore by Continent
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Discover unique experiences and breathtaking destinations across all seven continents.
+                Discover unique experiences and breathtaking destinations across
+                all seven continents.
               </p>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
             {continents.map((continent) => (
-              <Link key={continent.name} href={`/continents/${continent.slug}`} className="group">
+              <Link
+                key={continent.name}
+                href={`/continents/${continent.slug}`}
+                className="group"
+              >
                 <Card className="overflow-hidden transition-all hover:shadow-lg">
                   <div className="relative h-60 w-full overflow-hidden">
                     <Image
@@ -119,8 +229,12 @@ export default async function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4">
-                      <h3 className="text-xl font-bold text-white">{continent.name}</h3>
-                      <p className="text-sm text-white/80">{continent.description}</p>
+                      <h3 className="text-xl font-bold text-white">
+                        {continent.name}
+                      </h3>
+                      <p className="text-sm text-white/80">
+                        {continent.description}
+                      </p>
                     </div>
                   </div>
                 </Card>
@@ -135,7 +249,9 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Travel Tips & Guides</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Travel Tips & Guides
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Expert advice to help you plan your perfect trip
               </p>
@@ -161,9 +277,12 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Latest Travel Stories</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Latest Travel Stories
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Get inspired by our latest travel blogs and plan your next adventure.
+                Get inspired by our latest travel blogs and plan your next
+                adventure.
               </p>
             </div>
           </div>
@@ -183,14 +302,20 @@ export default async function Home() {
                 <CardHeader>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-blue-500" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">{post.location || "Global"}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {post.location || "Global"}
+                    </span>
                   </div>
                   <Link href={`/blog/${post.slug}`}>
-                    <CardTitle className="line-clamp-2 hover:text-blue-600 transition-colors">{post.title}</CardTitle>
+                    <CardTitle className="line-clamp-2 hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </CardTitle>
                   </Link>
                 </CardHeader>
                 <CardContent>
-                  <p className="line-clamp-3 text-gray-500 dark:text-gray-400">{post.excerpt}</p>
+                  <p className="line-clamp-3 text-gray-500 dark:text-gray-400">
+                    {post.excerpt}
+                  </p>
                 </CardContent>
                 <CardFooter>
                   <Link href={`/blog/${post.slug}`}>
@@ -217,9 +342,12 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What Travelers Say</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                What Travelers Say
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Read testimonials from travelers who have explored the world with us
+                Read testimonials from travelers who have explored the world
+                with us
               </p>
             </div>
           </div>
@@ -236,22 +364,31 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Join Our Newsletter</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Join Our Newsletter
+              </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Subscribe to receive travel tips, exclusive offers, and inspiration for your next adventure
+                Subscribe to receive travel tips, exclusive offers, and
+                inspiration for your next adventure
               </p>
             </div>
             <div className="w-full max-w-md space-y-2">
               <form className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1">
-                  <Input type="email" placeholder="Enter your email" className="w-full" required />
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full"
+                    required
+                  />
                 </div>
                 <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
                   Subscribe <Mail className="ml-2 h-4 w-4" />
                 </Button>
               </form>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
+                By subscribing, you agree to our Privacy Policy and consent to
+                receive updates from our company.
               </p>
             </div>
           </div>
@@ -263,9 +400,12 @@ export default async function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Why Choose Us</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                Why Choose Us
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                We provide authentic travel experiences and expert guidance for your next adventure.
+                We provide authentic travel experiences and expert guidance for
+                your next adventure.
               </p>
             </div>
           </div>
@@ -277,7 +417,8 @@ export default async function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Our team of experienced travelers has explored destinations across all seven continents.
+                  Our team of experienced travelers has explored destinations
+                  across all seven continents.
                 </p>
               </CardContent>
             </Card>
@@ -288,7 +429,8 @@ export default async function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Join a community of passionate travelers sharing authentic experiences and tips.
+                  Join a community of passionate travelers sharing authentic
+                  experiences and tips.
                 </p>
               </CardContent>
             </Card>
@@ -299,7 +441,8 @@ export default async function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Discover hidden gems and iconic landmarks carefully selected by our travel experts.
+                  Discover hidden gems and iconic landmarks carefully selected
+                  by our travel experts.
                 </p>
               </CardContent>
             </Card>
@@ -307,7 +450,7 @@ export default async function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
 // Sample data
@@ -316,53 +459,54 @@ const continents = [
     name: "Africa",
     slug: "africa",
     description: "Experience diverse wildlife and vibrant cultures",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/africa.jpg",
   },
   {
     name: "Asia",
     slug: "asia",
     description: "Ancient traditions meet modern innovation",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/asia.webp",
   },
   {
     name: "Europe",
     slug: "europe",
     description: "Historic cities and picturesque landscapes",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/europe.jpeg",
   },
   {
     name: "North America",
     slug: "north-america",
     description: "Natural wonders and cosmopolitan cities",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/north-america.jpg",
   },
   {
     name: "South America",
     slug: "south-america",
     description: "Rainforests, mountains, and vibrant culture",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/south-america.jpg",
   },
   {
     name: "Australia & Oceania",
     slug: "australia-oceania",
     description: "Island paradises and unique wildlife",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/australia.jpg",
   },
   {
     name: "Antarctica",
     slug: "antarctica",
     description: "Earth's final frontier of pristine wilderness",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/antractica.jpg",
   },
-]
+];
 
 const popularDestinations = [
   {
     id: 1,
     name: "Santorini, Greece",
     slug: "santorini-greece",
-    description: "Famous for its stunning sunsets, white-washed buildings, and blue domes",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "Famous for its stunning sunsets, white-washed buildings, and blue domes",
+    image: "/images/greece.webp",
     rating: 4.9,
     continent: "Europe",
   },
@@ -370,8 +514,9 @@ const popularDestinations = [
     id: 2,
     name: "Bali, Indonesia",
     slug: "bali-indonesia",
-    description: "A paradise island known for beaches, temples, and lush rice terraces",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "A paradise island known for beaches, temples, and lush rice terraces",
+    image: "/images/bali.webp",
     rating: 4.8,
     continent: "Asia",
   },
@@ -380,11 +525,11 @@ const popularDestinations = [
     name: "Machu Picchu, Peru",
     slug: "machu-picchu-peru",
     description: "Ancient Incan citadel set high in the Andes Mountains",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/machu-pichu.jpg",
     rating: 4.9,
     continent: "South America",
   },
-]
+];
 
 const testimonials = [
   {
@@ -411,14 +556,15 @@ const testimonials = [
     rating: 4,
     text: "The blog posts inspired me to visit places I'd never considered before. My trip to Southeast Asia was unforgettable thanks to these recommendations.",
   },
-]
+];
 
 const travelTips = [
   {
     id: 1,
     title: "Packing Essentials for Any Trip",
     slug: "packing-essentials",
-    excerpt: "Learn how to pack efficiently for any destination with our comprehensive guide.",
+    excerpt:
+      "Learn how to pack efficiently for any destination with our comprehensive guide.",
     image: "/placeholder.svg?height=300&width=500",
     category: "Travel Planning",
   },
@@ -426,7 +572,8 @@ const travelTips = [
     id: 2,
     title: "Budget Travel: How to See the World for Less",
     slug: "budget-travel-guide",
-    excerpt: "Discover money-saving tips and tricks to make your travel dreams a reality without breaking the bank.",
+    excerpt:
+      "Discover money-saving tips and tricks to make your travel dreams a reality without breaking the bank.",
     image: "/placeholder.svg?height=300&width=500",
     category: "Budget Travel",
   },
@@ -434,9 +581,9 @@ const travelTips = [
     id: 3,
     title: "Solo Travel Safety Tips",
     slug: "solo-travel-safety",
-    excerpt: "Essential safety advice for solo travelers to ensure a worry-free and enjoyable journey.",
+    excerpt:
+      "Essential safety advice for solo travelers to ensure a worry-free and enjoyable journey.",
     image: "/placeholder.svg?height=300&width=500",
     category: "Solo Travel",
   },
-]
-
+];
