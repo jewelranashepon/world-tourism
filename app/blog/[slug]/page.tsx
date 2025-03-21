@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-8">
         <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
@@ -132,7 +132,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {section.heading && <h2 className="text-2xl font-bold">{section.heading}</h2>}
               {section.paragraphs &&
                 section.paragraphs.map((paragraph: string, pIndex: number) => (
-                  <p key={pIndex} className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p key={pIndex} className="text-slate-900 text-lg dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
                     {paragraph}
                   </p>
                 ))}
@@ -224,7 +224,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`} className="block group">
                     <div className="flex gap-3">
-                      <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md">
+                      <div className="relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-md">
                         <Image
                           src={relatedPost.image || "/placeholder.svg"}
                           alt={relatedPost.title}

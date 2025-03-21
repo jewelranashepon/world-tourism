@@ -135,7 +135,7 @@ export default function NewPostPage() {
                   id="content"
                   name="content"
                   placeholder="Write your blog post content here..."
-                  rows={10}
+                  rows={20}
                   required
                 />
               </div>

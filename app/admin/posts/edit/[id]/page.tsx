@@ -13,9 +13,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import AdminLayout from "@/components/admin-layout"
 import ImageUpload from "@/components/image-upload"
-import SlugInput from "@/components/slug-input"
+// import SlugInput from "@/components/slug-input"
 import { updatePost } from "@/lib/actions"
 import { useToast } from "@/hooks/use-toast"
+import SlugInput from "@/components/input-slug"
 
 interface EditPostPageProps {
   params: {

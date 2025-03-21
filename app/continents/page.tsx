@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function ContinentsPage() {
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-8">
         <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">

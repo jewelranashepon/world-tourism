@@ -44,6 +44,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Hero Section */}
       <section
         className="w-full relative py-16 md:py-28 lg:py-36 xl:py-48 bg-cover bg-center text-white"
         style={{ backgroundImage: "url('/images/hero-image.jpg')" }}
@@ -70,7 +71,7 @@ export default async function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-slate-900 hover:bg-white hover:text-gray-900 shadow-lg"
+                className="border-white hover:bg-slate-900 hover:text-white text-slate-900 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 shadow-lg"
               >
                 Read Travel Stories
               </Button>
@@ -116,7 +117,7 @@ export default async function Home() {
       </section>
 
       {/* Continents Section */}
-      <section className="w-full dark:bg-gray-900">
+      <section className="w-full">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -193,7 +194,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Blog Posts */}
-      <section className="w-full dark:bg-gray-900">
+      <section className="w-full">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -290,7 +291,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-16 md:py-28 lg:py-36 bg-blue-50 dark:bg-blue-950">
+      <section className="w-full py-16 md:py-28 lg:py-36">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-between items-center">
             {/* LEFT COLUMN: FORM */}

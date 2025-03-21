@@ -1,16 +1,16 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ChevronRight, Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronRight, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function DestinationsPage() {
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-8 md:px-6 md:py-10">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-8">
+      <div className="flex items-center gap-1 text-base font-bold text-blue-500 dark:text-gray-400 mb-8">
         <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
           Home
         </Link>
@@ -20,41 +20,101 @@ export default function DestinationsPage() {
 
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explore Destinations</h1>
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Explore Destinations
+          </h1>
           <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-            Discover amazing places around the world and plan your next adventure.
+            Discover amazing places around the world and plan your next
+            adventure.
           </p>
         </div>
       </div>
 
       {/* Search and Filter */}
-      <div className="mb-12">
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-            <Input placeholder="Search destinations..." className="pl-10" />
+      <div className="mb-16">
+        <form className="flex flex-col justify-center sm:flex-row gap-4 w-full max-w-4xl mx-auto">
+          {/* Search Input with Icon */}
+          <div className="relative flex-1 max-w-sm">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Input
+              type="text"
+              placeholder="Search destinations, countries, or tags..."
+              className="w-full pl-10 pr-4 py-3 text-sm border border-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+              aria-label="Search input"
+            />
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700">Search</Button>
-        </div>
+
+          {/* Search Button */}
+          <Button
+            type="submit"
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all shadow-md"
+          >
+            Search
+          </Button>
+        </form>
       </div>
 
       {/* Destinations by Continent */}
       <Tabs defaultValue="all" className="mb-16">
-        <TabsList className="mb-8 flex flex-wrap justify-start">
-          <TabsTrigger value="all">All Destinations</TabsTrigger>
-          <TabsTrigger value="africa">Africa</TabsTrigger>
-          <TabsTrigger value="asia">Asia</TabsTrigger>
-          <TabsTrigger value="europe">Europe</TabsTrigger>
-          <TabsTrigger value="north-america">North America</TabsTrigger>
-          <TabsTrigger value="south-america">South America</TabsTrigger>
-          <TabsTrigger value="australia-oceania">Australia & Oceania</TabsTrigger>
-          <TabsTrigger value="antarctica">Antarctica</TabsTrigger>
+        <TabsList className="mb-10 flex flex-wrap justify-center gap-3 bg-transparent p-0 shadow-none border-none">
+          <TabsTrigger
+            value="all"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            All Destinations
+          </TabsTrigger>
+          <TabsTrigger
+            value="africa"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            Africa
+          </TabsTrigger>
+          <TabsTrigger
+            value="asia"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            Asia
+          </TabsTrigger>
+          <TabsTrigger
+            value="europe"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            Europe
+          </TabsTrigger>
+          <TabsTrigger
+            value="north-america"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            North America
+          </TabsTrigger>
+          <TabsTrigger
+            value="south-america"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            South America
+          </TabsTrigger>
+          <TabsTrigger
+            value="australia-oceania"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            Australia & Oceania
+          </TabsTrigger>
+          <TabsTrigger
+            value="antarctica"
+            className="px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 border border-gray-300 dark:border-gray-700 data-[state=active]:bg-blue-600 data-[state=active]:text-white hover:bg-blue-100 dark:hover:bg-blue-800"
+          >
+            Antarctica
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="all">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {destinations.map((destination) => (
-              <Link key={destination.id} href={`/destinations/${destination.slug}`} className="group">
+              <Link
+                key={destination.id}
+                href={`/destinations/${destination.slug}`}
+                className="group"
+              >
                 <Card className="overflow-hidden transition-all hover:shadow-lg h-full">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
@@ -76,13 +136,19 @@ export default function DestinationsPage() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-sm font-medium">{destination.rating}</span>
+                      <span className="text-sm font-medium">
+                        {destination.rating}
+                      </span>
                     </div>
                   </div>
                   <CardContent className="p-4">
                     <h3 className="text-lg font-bold">{destination.name}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{destination.description}</p>
-                    <div className="mt-2 text-xs text-blue-600 dark:text-blue-400">{destination.continent}</div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                      {destination.description}
+                    </p>
+                    <div className="mt-2 text-xs text-blue-600 dark:text-blue-400">
+                      {destination.continent}
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -91,12 +157,19 @@ export default function DestinationsPage() {
         </TabsContent>
 
         {continents.map((continent) => (
-          <TabsContent key={continent} value={continent.toLowerCase().replace(/\s+/g, "-")}>
+          <TabsContent
+            key={continent}
+            value={continent.toLowerCase().replace(/\s+/g, "-")}
+          >
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {destinations
                 .filter((destination) => destination.continent === continent)
                 .map((destination) => (
-                  <Link key={destination.id} href={`/destinations/${destination.slug}`} className="group">
+                  <Link
+                    key={destination.id}
+                    href={`/destinations/${destination.slug}`}
+                    className="group"
+                  >
                     <Card className="overflow-hidden transition-all hover:shadow-lg h-full">
                       <div className="relative h-48 w-full overflow-hidden">
                         <Image
@@ -118,12 +191,18 @@ export default function DestinationsPage() {
                               clipRule="evenodd"
                             />
                           </svg>
-                          <span className="text-sm font-medium">{destination.rating}</span>
+                          <span className="text-sm font-medium">
+                            {destination.rating}
+                          </span>
                         </div>
                       </div>
                       <CardContent className="p-4">
-                        <h3 className="text-lg font-bold">{destination.name}</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{destination.description}</p>
+                        <h3 className="text-lg font-bold">
+                          {destination.name}
+                        </h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                          {destination.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </Link>
@@ -134,11 +213,11 @@ export default function DestinationsPage() {
       </Tabs>
 
       {/* Featured Destination */}
-      <div className="mb-16">
+      <div className="mb-16 py-20">
         <div className="relative rounded-xl overflow-hidden">
-          <div className="relative h-[500px] w-full">
+          <div className="relative h-[600px] w-full">
             <Image
-              src="/placeholder.svg?height=500&width=1200"
+              src="/images/bali.webp"
               alt="Featured Destination"
               fill
               className="object-cover"
@@ -154,8 +233,8 @@ export default function DestinationsPage() {
                 Explore the Wonders of Bali
               </h2>
               <p className="text-white/90 mb-6">
-                Discover tropical beaches, lush rice terraces, ancient temples, and vibrant culture on the Island of the
-                Gods.
+                Discover tropical beaches, lush rice terraces, ancient temples,
+                and vibrant culture on the Island of the Gods.
               </p>
               <Link href="/destinations/bali-indonesia">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -171,34 +250,52 @@ export default function DestinationsPage() {
       <div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 mb-12">
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           <div>
-            <h2 className="text-2xl font-bold mb-4">Need Help Planning Your Trip?</h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-4">
-              Our travel experts can help you create the perfect itinerary based on your interests, budget, and travel
-              style.
+            <h2 className="text-3xl font-bold mb-4">
+              Need Help Planning Your Trip?
+            </h2>
+            <p className="w-3/4 text-slate-700 dark:text-gray-400 mb-4">
+              Our travel experts can help you create the perfect itinerary based
+              on your interests, budget, and travel style.
             </p>
             <Link href="/contact">
-              <Button className="bg-blue-600 hover:bg-blue-700">Contact Us</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700">
+                Contact Us
+              </Button>
             </Link>
           </div>
           <div className="relative h-[300px] rounded-xl overflow-hidden">
-            <Image src="/placeholder.svg?height=300&width=600" alt="Travel planning" fill className="object-cover" />
+            <Image
+              src="/images/help-image.webp"
+              alt="Travel planning"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Sample data
-const continents = ["Africa", "Asia", "Europe", "North America", "South America", "Australia & Oceania", "Antarctica"]
+const continents = [
+  "Africa",
+  "Asia",
+  "Europe",
+  "North America",
+  "South America",
+  "Australia & Oceania",
+  "Antarctica",
+];
 
 const destinations = [
   {
     id: 1,
     name: "Santorini, Greece",
     slug: "santorini-greece",
-    description: "Famous for its stunning sunsets, white-washed buildings, and blue domes",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "Famous for its stunning sunsets, white-washed buildings, and blue domes",
+    image: "/images/greece.webp",
     rating: 4.9,
     continent: "Europe",
   },
@@ -206,8 +303,9 @@ const destinations = [
     id: 2,
     name: "Bali, Indonesia",
     slug: "bali-indonesia",
-    description: "A paradise island known for beaches, temples, and lush rice terraces",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "A paradise island known for beaches, temples, and lush rice terraces",
+    image: "/images/bali.webp",
     rating: 4.8,
     continent: "Asia",
   },
@@ -216,7 +314,7 @@ const destinations = [
     name: "Machu Picchu, Peru",
     slug: "machu-picchu-peru",
     description: "Ancient Incan citadel set high in the Andes Mountains",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/machu-pichu.jpg",
     rating: 4.9,
     continent: "South America",
   },
@@ -224,8 +322,9 @@ const destinations = [
     id: 4,
     name: "Kyoto, Japan",
     slug: "kyoto-japan",
-    description: "Historic city known for its temples, gardens, and traditional culture",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "Historic city known for its temples, gardens, and traditional culture",
+    image: "/images/kyoto.jpg",
     rating: 4.7,
     continent: "Asia",
   },
@@ -233,8 +332,9 @@ const destinations = [
     id: 5,
     name: "Serengeti National Park, Tanzania",
     slug: "serengeti-tanzania",
-    description: "Famous for the annual wildebeest migration and incredible wildlife",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "Famous for the annual wildebeest migration and incredible wildlife",
+    image: "/images/serengeti.jpg",
     rating: 4.9,
     continent: "Africa",
   },
@@ -242,8 +342,9 @@ const destinations = [
     id: 6,
     name: "Paris, France",
     slug: "paris-france",
-    description: "The City of Light, known for its art, cuisine, and iconic landmarks",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "The City of Light, known for its art, cuisine, and iconic landmarks",
+    image: "/images/paris.avif",
     rating: 4.7,
     continent: "Europe",
   },
@@ -251,8 +352,9 @@ const destinations = [
     id: 7,
     name: "Great Barrier Reef, Australia",
     slug: "great-barrier-reef-australia",
-    description: "World's largest coral reef system with incredible marine life",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "World's largest coral reef system with incredible marine life",
+    image: "/images/great-reef.jpg",
     rating: 4.8,
     continent: "Australia & Oceania",
   },
@@ -260,10 +362,10 @@ const destinations = [
     id: 8,
     name: "New York City, USA",
     slug: "new-york-city-usa",
-    description: "Vibrant metropolis known for its skyline, culture, and energy",
-    image: "/placeholder.svg?height=400&width=600",
+    description:
+      "Vibrant metropolis known for its skyline, culture, and energy",
+    image: "/images/new-york.webp",
     rating: 4.6,
     continent: "North America",
   },
-]
-
+];
