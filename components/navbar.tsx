@@ -122,7 +122,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky py-2 top-0 z-50 w-full border-b border-gray-700 bg-gradient-to-r from-[#002147] to-[#003366] backdrop-blur-md supports-[backdrop-filter]:bg-opacity-90">
-      <div className="container flex h-16 items-center justify-between text-white">
+      <div className="container mx-auto flex h-16 items-center justify-between text-white">
         <Link href="/" className="flex items-center gap-2">
           <Globe className="h-10 w-10 text-blue-300" />
           <span className="text-xl font-bold">World Tourism</span>
