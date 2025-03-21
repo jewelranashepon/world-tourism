@@ -6,7 +6,7 @@ import { Globe, Users, Award, Heart, Mail, MapPin } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
         <div className="space-y-2">
@@ -38,7 +38,7 @@ export default function AboutPage() {
         </div>
         <div className="relative h-[400px] rounded-xl overflow-hidden">
           <Image
-            src="/placeholder.svg?height=400&width=600"
+            src="/images/our-story.webp"
             alt="Our team exploring the world"
             fill
             className="object-cover"
@@ -138,7 +138,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="my-auto mx-20">
             <Link href="/contact">
               <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700">
                 Contact Us

@@ -4,6 +4,8 @@ import { ChevronRight, MapPin, Calendar, Globe, Star, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { allDestinations } from "@/app/data/allDestinations"
+
 
 interface DestinationPageProps {
   params: {
@@ -25,14 +27,14 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     .slice(0, 3)
 
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-8 md:px-6 md:py-10">
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-8">
-        <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
+        <Link href="/" className="text-lg font-bold text-blue-500 hover:text-blue-700 dark:hover:text-blue-400">
           Home
         </Link>
         <ChevronRight className="h-4 w-4" />
-        <Link href="/destinations" className="hover:text-blue-600 dark:hover:text-blue-400">
+        <Link href="/destinations" className="text-base font-bold text-blue-600 hover:text-blue-700 dark:hover:text-blue-400">
           Destinations
         </Link>
         <ChevronRight className="h-4 w-4" />
@@ -40,12 +42,12 @@ export default function DestinationPage({ params }: DestinationPageProps) {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[500px] rounded-xl overflow-hidden mb-12">
+      <div className="relative h-[600px] rounded-xl overflow-hidden mb-12">
         <Image
           src={destination.heroImage || "/placeholder.svg?height=500&width=1200"}
           alt={destination.name}
           fill
-          className="object-cover"
+          className="object-fill"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 p-8">
@@ -273,7 +275,7 @@ export default function DestinationPage({ params }: DestinationPageProps) {
               <Card className="overflow-hidden transition-all hover:shadow-lg h-full">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src={destination.image || "/placeholder.svg"}
+                    src={destination.heroImage || "/placeholder.svg"}
                     alt={destination.name}
                     fill
                     className="object-cover transition-transform hover:scale-105"
@@ -300,373 +302,4 @@ export default function DestinationPage({ params }: DestinationPageProps) {
     </div>
   )
 }
-
-// Sample data
-const allDestinations = [
-  {
-    id: 1,
-    name: "Santorini, Greece",
-    slug: "santorini-greece",
-    description: "Famous for its stunning sunsets, white  Greece",
-    slug: "santorini-greece",
-    description: "Famous for its stunning sunsets, white-washed buildings, and blue domes",
-    image: "/placeholder.svg?height=400&width=600",
-    heroImage: "/placeholder.svg?height=500&width=1200",
-    continent: "Europe",
-    location: "Aegean Sea, Greece",
-    rating: 4.9,
-    reviews: 2453,
-    bestTimeToVisit: "April to October",
-    language: "Greek",
-    currency: "Euro (€)",
-    timeZone: "GMT+3",
-    weather: "Mediterranean climate with mild winters and warm summers",
-    longDescription:
-      "Santorini is one of the Cyclades islands in the Aegean Sea. It was devastated by a volcanic eruption in the 16th century BC, forever shaping its rugged landscape. The whitewashed, cubiform houses of its two principal towns, Fira and Oia, cling to cliffs above an underwater caldera (crater). They overlook the sea, small islands to the west and beaches made up of black, red and white lava pebbles.",
-    highlights: [
-      {
-        icon: "star",
-        title: "Stunning Views",
-        description: "Breathtaking caldera views and famous sunsets",
-      },
-      {
-        icon: "map-pin",
-        title: "Unique Beaches",
-        description: "Red Beach, Black Beach, and White Beach",
-      },
-      {
-        icon: "calendar",
-        title: "Wine Region",
-        description: "Ancient vineyards producing unique wines",
-      },
-      {
-        icon: "info",
-        title: "Ancient History",
-        description: "Archaeological sites including Akrotiri",
-      },
-    ],
-    attractions: [
-      {
-        name: "Oia Village",
-        description: "Famous for its stunning sunset views, blue-domed churches, and whitewashed buildings",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Akrotiri Archaeological Site",
-        description: "Ancient Minoan settlement preserved by volcanic ash, often called the 'Greek Pompeii'",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Red Beach",
-        description: "Dramatic beach with red volcanic cliffs and deep blue waters",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    activities: [
-      {
-        name: "Caldera Cruise",
-        description: "Sail around the caldera, visit hot springs, and enjoy views from the water",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Wine Tasting",
-        description: "Tour the island's unique vineyards and taste local varieties like Assyrtiko",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Hiking",
-        description: "Walk the scenic trail from Fira to Oia along the caldera's edge",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    food: {
-      overview:
-        "Santorini's cuisine is characterized by fresh local ingredients grown in the volcanic soil. The island is known for its cherry tomatoes, white eggplant, capers, and unique wines made from grapes grown in the volcanic soil.",
-      dishes: [
-        {
-          name: "Fava",
-          description: "Purée of yellow split peas served with olive oil and lemon",
-        },
-        {
-          name: "Tomatokeftedes",
-          description: "Tomato fritters made with Santorini's famous cherry tomatoes",
-        },
-        {
-          name: "Chlorotyri",
-          description: "Local soft goat cheese with a distinctive flavor",
-        },
-      ],
-      restaurants: [
-        {
-          name: "Metaxy Mas",
-          description: "Traditional taverna with stunning views and authentic Greek dishes",
-        },
-        {
-          name: "Selene",
-          description: "Fine dining restaurant focusing on modern interpretations of traditional Santorinian cuisine",
-        },
-        {
-          name: "To Psaraki",
-          description: "Seafood restaurant in Vlychada with fresh catches and sea views",
-        },
-      ],
-    },
-    tips: {
-      beforeYouGo: [
-        "Book accommodations well in advance, especially for stays during peak season (June-August)",
-        "Bring comfortable walking shoes for the many steps and cobblestone streets",
-        "Pack sunscreen and a hat as shade can be limited",
-        "Consider shoulder seasons (April-May or September-October) for fewer crowds and lower prices",
-      ],
-      gettingAround:
-        "The island has a bus system connecting major towns, but renting a car, ATV, or scooter gives you more flexibility. Taxis are available but limited in number. Many hotels offer shuttle services to popular destinations.",
-      localCustoms:
-        "Greeks typically eat dinner late, around 9-10 PM. Tipping is appreciated but not mandatory; 10% is standard for good service. Dress modestly when visiting churches and monasteries.",
-      safety:
-        "Santorini is generally very safe for tourists. Be careful on the steep steps, especially at night. The sun can be intense, so stay hydrated and use sun protection.",
-    },
-  },
-  {
-    id: 2,
-    name: "Bali, Indonesia",
-    slug: "bali-indonesia",
-    description: "A paradise island known for beaches, temples, and lush rice terraces",
-    image: "/placeholder.svg?height=400&width=600",
-    heroImage: "/placeholder.svg?height=500&width=1200",
-    continent: "Asia",
-    location: "Indonesia",
-    rating: 4.8,
-    reviews: 3245,
-    bestTimeToVisit: "April to October",
-    language: "Indonesian, Balinese",
-    currency: "Indonesian Rupiah (IDR)",
-    timeZone: "GMT+8",
-    weather: "Tropical climate with year-round warm temperatures",
-    longDescription:
-      "Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs. The island is home to religious sites such as cliffside Uluwatu Temple. To the south, the beachside city of Kuta has lively bars, while Seminyak, Sanur and Nusa Dua are popular resort towns. The island is also known for its yoga and meditation retreats.",
-    highlights: [
-      {
-        icon: "map-pin",
-        title: "Beautiful Beaches",
-        description: "From Kuta to Nusa Dua and beyond",
-      },
-      {
-        icon: "calendar",
-        title: "Rich Culture",
-        description: "Temples, dances, and ceremonies",
-      },
-      {
-        icon: "star",
-        title: "Rice Terraces",
-        description: "Stunning agricultural landscapes",
-      },
-      {
-        icon: "info",
-        title: "Wellness",
-        description: "Yoga, meditation, and spa treatments",
-      },
-    ],
-    attractions: [
-      {
-        name: "Tanah Lot Temple",
-        description: "Ancient sea temple perched on a rock formation, especially beautiful at sunset",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Ubud Monkey Forest",
-        description: "Natural sanctuary home to over 700 Balinese long-tailed macaques",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Tegallalang Rice Terraces",
-        description: "Stunning terraced rice fields using traditional Balinese irrigation system",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    activities: [
-      {
-        name: "Surfing",
-        description: "Catch waves at beaches like Kuta, Uluwatu, and Canggu, suitable for all levels",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Yoga Retreat",
-        description: "Join classes and retreats in Ubud, Bali's spiritual and wellness center",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Balinese Cooking Class",
-        description: "Learn to prepare traditional dishes using local ingredients and techniques",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    food: {
-      overview:
-        "Balinese cuisine is aromatic and flavorful, featuring rice as a staple accompanied by vegetables, meat, and seafood. Spices like turmeric, ginger, galangal, and chili are commonly used, creating a unique flavor profile.",
-      dishes: [
-        {
-          name: "Babi Guling",
-          description: "Spit-roasted pig stuffed with traditional spices",
-        },
-        {
-          name: "Nasi Campur",
-          description: "Mixed rice dish with small portions of vegetables, meat, and condiments",
-        },
-        {
-          name: "Lawar",
-          description: "Traditional mix of vegetables, coconut and minced meat with rich herbs and spices",
-        },
-      ],
-      restaurants: [
-        {
-          name: "Locavore",
-          description: "Award-winning restaurant in Ubud focusing on local, sustainable ingredients",
-        },
-        {
-          name: "Warung Babi Guling Ibu Oka",
-          description: "Famous for authentic Balinese suckling pig in Ubud",
-        },
-        {
-          name: "Merah Putih",
-          description: "Modern Indonesian cuisine in a stunning architectural setting in Seminyak",
-        },
-      ],
-    },
-    tips: {
-      beforeYouGo: [
-        "Bring modest clothing for temple visits (shoulders and knees must be covered)",
-        "Exchange money at reputable places to avoid scams",
-        "Purchase travel insurance that covers scooter riding if you plan to rent one",
-        "Download Gojek or Grab apps for reliable transportation",
-      ],
-      gettingAround:
-        "Renting a scooter is popular but can be dangerous if you're inexperienced. Private drivers are affordable and convenient for day trips. Ride-hailing apps like Gojek and Grab are available in most tourist areas.",
-      localCustoms:
-        "Always use your right hand for giving or receiving items. Remove shoes before entering homes and some shops. When visiting temples, wear a sarong and sash (usually available to rent or borrow at the entrance).",
-      safety:
-        "Be cautious when swimming as some beaches have strong currents. Drink bottled water only. Be aware of monkeys at temples and forests – they can be aggressive and may snatch belongings.",
-    },
-  },
-  {
-    id: 3,
-    name: "Machu Picchu, Peru",
-    slug: "machu-picchu-peru",
-    description: "Ancient Incan citadel set high in the Andes Mountains",
-    image: "/placeholder.svg?height=400&width=600",
-    heroImage: "/placeholder.svg?height=500&width=1200",
-    continent: "South America",
-    location: "Cusco Region, Peru",
-    rating: 4.9,
-    reviews: 1876,
-    bestTimeToVisit: "May to October (dry season)",
-    language: "Spanish, Quechua",
-    currency: "Peruvian Sol (PEN)",
-    timeZone: "GMT-5",
-    weather: "Varies by season with a dry winter and wet summer",
-    longDescription:
-      "Machu Picchu is an Incan citadel set high in the Andes Mountains in Peru, above the Urubamba River valley. Built in the 15th century and later abandoned, it's renowned for its sophisticated dry-stone walls that fuse huge blocks without the use of mortar, intriguing buildings that play on astronomical alignments, and panoramic views. Its exact former use remains a mystery.",
-    highlights: [
-      {
-        icon: "star",
-        title: "UNESCO Site",
-        description: "World Heritage Site since 1983",
-      },
-      {
-        icon: "map-pin",
-        title: "Inca Architecture",
-        description: "Remarkable stone construction",
-      },
-      {
-        icon: "calendar",
-        title: "Sacred Location",
-        description: "Aligned with astronomical events",
-      },
-      {
-        icon: "info",
-        title: "Biodiversity",
-        description: "Unique flora and fauna",
-      },
-    ],
-    attractions: [
-      {
-        name: "Intihuatana Stone",
-        description: "Ancient astronomical clock or calendar used by the Incas",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Temple of the Sun",
-        description: "Sacred temple with exceptional stonework and astronomical alignments",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Huayna Picchu",
-        description: "Steep mountain offering spectacular views of Machu Picchu from above",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    activities: [
-      {
-        name: "Inca Trail Trek",
-        description: "Multi-day hike along ancient paths leading to Machu Picchu",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Guided Tour",
-        description: "Learn about the history and significance of the site from expert guides",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-      {
-        name: "Sunrise Visit",
-        description: "Experience the magical moment when the sun rises over the ancient citadel",
-        image: "/placeholder.svg?height=300&width=500",
-      },
-    ],
-    food: {
-      overview:
-        "Peruvian cuisine is diverse and flavorful, blending indigenous traditions with influences from Spanish, African, Chinese, and Japanese cultures. In the Cusco region near Machu Picchu, you'll find traditional Andean dishes featuring local ingredients like potatoes, corn, and quinoa.",
-      dishes: [
-        {
-          name: "Lomo Saltado",
-          description: "Stir-fried beef with onions, tomatoes, and french fries, served with rice",
-        },
-        {
-          name: "Cuy",
-          description: "Roasted guinea pig, a traditional Andean delicacy",
-        },
-        {
-          name: "Choclo con Queso",
-          description: "Large-kernel Andean corn served with local cheese",
-        },
-      ],
-      restaurants: [
-        {
-          name: "Indio Feliz",
-          description: "Popular restaurant in Aguas Calientes with French-Peruvian fusion",
-        },
-        {
-          name: "Tinkuy Buffet Restaurant",
-          description: "Restaurant at the Sanctuary Lodge offering views of Machu Picchu",
-        },
-        {
-          name: "El Mapi Restaurant",
-          description: "Modern restaurant in Aguas Calientes with organic, local ingredients",
-        },
-      ],
-    },
-    tips: {
-      beforeYouGo: [
-        "Book entrance tickets well in advance as they're limited and sell out quickly",
-        "Spend a night in Aguas Calientes to allow for an early morning visit",
-        "Acclimatize to the altitude in Cusco for a few days before visiting",
-        "Bring sun protection, rain gear, and insect repellent regardless of season",
-      ],
-      gettingAround:
-        "From Cusco, take a train to Aguas Calientes, then a 20-minute bus ride to the entrance. Alternatively, hike the Inca Trail or one of the alternative trails. Within the site, follow designated paths and respect barriers.",
-      localCustoms:
-        "Respect the sacred nature of the site. Don't touch or climb on the structures. Quechua people, descendants of the Incas, still consider the site spiritually significant.",
-      safety:
-        "Stay on marked paths to avoid accidents on steep terrain. Drink plenty of water and be prepared for altitude sickness symptoms. Protect valuables as the site can be crowded with tourists.",
-    },
-  },
-]
 

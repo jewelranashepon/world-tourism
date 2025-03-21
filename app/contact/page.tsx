@@ -50,7 +50,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="container px-4 py-12 md:px-6 md:py-24">
+    <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Contact Us</h1>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       placeholder="Your message here..."
-                      rows={5}
+                      rows={13}
                       value={formData.message}
                       onChange={handleChange}
                       required
